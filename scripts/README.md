@@ -1,38 +1,29 @@
-<div style="text-align: center;">
+# ***Rethinking individual tree mortality model evaluation: are we using the right approach?***
 
-### papers_template_repo
+### :computer: :floppy_disk: :bar_chart: *Original data, code and results related to the study*
 
 ---
 
-*Original data, code and results related to the scientific article titled*
+:bulb::brain: ***Each file and/or folder code corresponds to the script used to generate it, ensuring that all (dataset + script + output) share the same code***
 
-# ***__title__***
+:warning: :scroll: ***Remember to update the script paths in your working directory if you plan to use that code***
 
-</div>
+---
 
 ## :file_folder: Folder Content
 
-- :scroll: ***0.0_code.r***
+- :scroll: ***8.1_functions_performance_graphs.r***
   	- :bulb: *purpose*: 
-  That is the purpose
+  Code used to export graphs in a common style. It was created for the [original paper about algorithms comparison for individual tree mortality](https://github.com/aitorvv/ML_individual_tree_mortality) and reused here
 	- :floppy_disk: :arrow_right: :computer: *input*: 
-  That is the input
-	- :computer: :arrow_right: :floppy_disk: *output*: 
   None
-
-- :scroll: ***0.1_code.r***
-  	- :bulb: *purpose*: 
-  That is the purpose
-	- :floppy_disk: :arrow_right: :computer: *input*: 
-  `1_data/1_raw/IFN2/*`
 	- :computer: :arrow_right: :floppy_disk: *output*: 
-  temporal datasets on `1_data/1_raw/IFN2/*`  
+  graphs on *output* folder
 
-- :scroll: ***0.1_code.r***
+- :scroll: ***graph_results.r***
   	- :bulb: *purpose*: 
-  That is the purpose
+  Code to create all the graphs (and additional ones) used in the study
 	- :floppy_disk: :arrow_right: :computer: *input*: 
-  `1_data/1_raw/IFN2/*`
+  files from *data* folder
 	- :computer: :arrow_right: :floppy_disk: *output*: 
-  temporal datasets on `1_data/1_raw/IFN2/*`  
-  
+    graphs on *output* folder  

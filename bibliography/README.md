@@ -1,15 +1,9 @@
-<div style="text-align: center;">
+# ***Rethinking individual tree mortality model evaluation: are we using the right approach?***
 
-### papers_template_repo
+### :computer: :floppy_disk: :bar_chart: *Original data, code and results related to the study*
 
 ---
 
-*Original data, code and results related to the scientific article titled*
-
-# ***__title__***
-
-</div>
-
 ## :file_folder: Folder Content
 
-- ***references.bib***: a compilation of all the literature cited or consulted during the creation of the document
+- :books: ***references.bib***: a compilation of all the literature cited or consulted during the creation of the document

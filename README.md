@@ -1,18 +1,12 @@
-<div style="text-align: center;">
+# ***Rethinking individual tree mortality model evaluation: are we using the right approach?***
 
-### papers_template_repo
+### :computer: :floppy_disk: :bar_chart: *Original data, code and results related to the study*
 
 ---
-
-*Original data, code and results related to the scientific article titled*
-
-# ***__title__***
-
-</div>
-
-:bulb: Have a look at the original poster <!-- [here](http://dx.doi.org/10.13140/RG.2.2.27865.94564). -->
-
-:bookmark: Poster DOI: <!-- http://dx.doi.org/10.13140/RG.2.2.27865.94564 -->
+<!--
+:bulb: Have a look at the original poster  [here](http://dx.doi.org/10.13140/RG.2.2.27865.94564). -->
+<!--
+:bookmark: Poster DOI:  http://dx.doi.org/10.13140/RG.2.2.27865.94564 -->
 
 :open_file_folder: Repository DOI: <!-- [![DOI](https://zenodo.org/badge/713296626.svg)](https://zenodo.org/doi/10.5281/zenodo.12772484) -->
 
@@ -22,32 +16,25 @@
 
 ## :sparkles: Highlights 
 
-- H1
-- H2
-- H3 
-- H4
+- Seven metrics were compared for evaluating individual tree mortality models 
+- The same model showed different classification performance ranges across metrics 
+- Best model selection varied depending on the chosen metric 
+- AUCPR outperformed AUC when no confusion matrix was available 
+- K and MCC are preferred when confusion matrix is available 
 
+---
 
 ## :book: Abstract
 
-Include here the abstract text
+Tree mortality plays a vital role in forest dynamics and is essential for growth models and simulators. Although factors such as competition, drought, and pathogens drive mortality, its underlying mechanisms remain difficult to model. While significant scientific attention has been given to selecting appropriate algorithms and covariates, evaluating individual tree mortality models also requires careful selection of performance metrics. This study compares seven different metrics to assess their impact on model evaluation and selection. Results show that candidate models exhibit varying performance ranges across metrics and that the choice of metric significantly influences the selection of the best model. When no confusion matrix is available, AUCPR emerges as a more reliable alternative to AUC, offering a balanced assessment for imbalanced datasets. When a confusion matrix is available, K and MCC outperform accuracy-based metrics, providing a fairer evaluation of both alive and dead tree classifications. These findings emphasize the importance of choosing appropriate evaluation metrics to enhance mortality model assessment and ensure reliable predictions in forestry applications. 
 
+---
+<!--
 ## :dart: Graphical abstract
 
 ![ga](./output/graphical_abstract.jpg)
 
-
----
-
-## 🛠 Tools developed
-
-:point_right: As an outcome of this work, you can utilize the following resources:
-
-- <img src="https://avatars.githubusercontent.com/u/111344993?s=200&v=4" alt="simanfor_logo" width="20"> ***New [SIMANFOR](www.simanfor.es) models***: the models developed in this study have been implemented into the simulator. You can access them by selecting the "*model_name*" option during the scenario creation screen
-- :computer: :scientist: ***R functions***: explore these [*R functions*]() to run the models developed in this study without needing to code
-- :computer: :snake: ***Python functions***: explore these [*Python functions*]() to run the models developed in this study without needing to code
-  
----
+--->
 
 ## :file_folder: Repository Contents
 
@@ -75,104 +62,75 @@ Include here the abstract text
 
 ---
 
-## :books: <img src="https://avatars.githubusercontent.com/u/111344993?s=200&v=4" alt="simanfor_logo" width="30">    Additional Information
-
-To gain a better understanding of how SIMANFOR works, you can explore its [website](https://www.simanfor.es/), [GitHub repository](https://github.com/simanfor), [manual](https://github.com/simanfor/manual), [YouTube playlist](https://www.youtube.com/playlist?list=PLsdzTKpJZZa7vn5zGpn07-bd0Nce-fMhJ) or even the [last paper](https://doi.org/10.1016/j.ecolmodel.2024.110912). 
-
----
-
-## ℹ License
-
-The content of this repository is under the [MIT license](./LICENSE).
-
----
-
 ## 🔗 About the authors
 
 
 #### Aitor Vázquez Veloso:
 
-[![](https://github.com/aitorvv.png?size=50)](https://github.com/aitorvv) \\ 
-[ORCID](https://orcid.org/0000-0003-0227-506X) \\
-[Researchgate](https://www.researchgate.net/profile/Aitor_Vazquez_Veloso) \\
-[LinkedIn](https://www.linkedin.com/in/aitorvazquezveloso/) \\
-[Twitter](https://twitter.com/aitorvv) \\
-[UVa](https://portaldelaciencia.uva.es/investigadores/178830/detalle)
+[![](https://github.com/aitorvv.png?size=50)](https://github.com/aitorvv) 
 
-#### Sheng-I Yang:
+[![Email](https://img.shields.io/badge/Email-D14836?logo=gmail&logoColor=white)](mailto:aitor.vazquez.veloso@uva.es)
+[![ORCID](https://img.shields.io/badge/ORCID-green?logo=orcid)](https://orcid.org/0000-0003-0227-506X)
+[![Google Scholar](https://img.shields.io/badge/Google%20Scholar-4285F4?logo=google-scholar&logoColor=white)](https://scholar.google.com/citations?user=XNMn1cUAAAAJ&hl=es&oi=ao)
+[![ResearchGate](https://img.shields.io/badge/ResearchGate-00CCBB?logo=researchgate&logoColor=white)](https://www.researchgate.net/profile/Aitor_Vazquez_Veloso)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-blue?logo=linkedin)](https://linkedin.com/in/aitorvazquezveloso/)
+[![X](https://img.shields.io/badge/X-1DA1F2?logo=x&logoColor=white)](https://twitter.com/aitorvv)
+[<img src="https://media.licdn.com/dms/image/v2/D4D0BAQFazHOlOJO50A/company-logo_200_200/company-logo_200_200/0/1692170343519/universidad_de_valladolid_logo?e=1747872000&v=beta&t=1mTS-xC7h3L_DQATdt6hpqjWGgW_Am3MXKnjYwcOVZs" alt="Description" width="22">](https://portaldelaciencia.uva.es/investigadores/178830/detalle)
 
+#### Andrés Bravo Núñez:
 
-<img src="https://warnell.uga.edu/sites/default/files/styles/square_400x400/public/Yang_photo1.jpg?itok=w2sseGLS" alt="Description" width="50"> \\
-[ORCID](https://orcid.org/0000-0002-4689-2628) \\
-[Researchgate](https://www.researchgate.net/profile/Sheng-I-Yang) \\
-[LinkedIn](https://www.linkedin.com/in/sheng-i-yang-b40713ba/) \\
-[UGA](https://portaldelaciencia.uva.es/investigadores/181874/detalle)
+<img src="https://media.licdn.com/dms/image/v2/C5603AQGwRR3P-w54rA/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1627411706088?e=1744848000&v=beta&t=VCuIdbLmoyRqLm_5L2yyWeCv2g83vyyedooTrCXhlKA" alt="Description" width="50"> 
 
-#### Bronson P. Bullock:
+[![ORCID](https://img.shields.io/badge/ORCID-green?logo=orcid)](https://orcid.org/0009-0003-6650-3487) 
+[![ResearchGate](https://img.shields.io/badge/ResearchGate-00CCBB?logo=researchgate&logoColor=white)](https://www.researchgate.net/profile/Andres-Bravo-Nunez) 
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-blue?logo=linkedin)](https://www.linkedin.com/in/andbrav) 
+[<img src="https://media.licdn.com/dms/image/v2/D4D0BAQFazHOlOJO50A/company-logo_200_200/company-logo_200_200/0/1692170343519/universidad_de_valladolid_logo?e=1747872000&v=beta&t=1mTS-xC7h3L_DQATdt6hpqjWGgW_Am3MXKnjYwcOVZs" alt="Description" width="22">](https://portaldelaciencia.uva.es/investigadores/874028/detalle)
 
-<img src="https://warnell.uga.edu/sites/default/files/styles/square_400x400/public/Bullock_Bronson.jpg?itok=tpmOn0ZE" alt="Description" width="50"> \\
-[ORCID](https://orcid.org/0000-0002-8783-7334) \\
-[Researchgate](https://www.researchgate.net/profile/Bronson-Bullock) \\
-[LinkedIn](https://www.linkedin.com/in/bronsonbullock-pmrc/) \\
-[UGA](https://warnell.uga.edu/directory/people/dr-bronson-p-bullock)
+#### Astor Toraño Caicoya:
 
+<img src="https://www.lss.ls.tum.de/fileadmin/_processed_/f/0/csm_Picture20_57f925f9ae.webp" alt="Description" width="50"> 
+
+[![ORCID](https://img.shields.io/badge/ORCID-green?logo=orcid)](https://orcid.org/0000-0002-9658-8990) 
+[![ResearchGate](https://img.shields.io/badge/ResearchGate-00CCBB?logo=researchgate&logoColor=white)](https://www.researchgate.net/profile/Astor-Torano-Caicoya) 
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-blue?logo=linkedin)](https://www.linkedin.com/in/toranoac) 
+[<img src="https://media.licdn.com/dms/image/v2/D4D0BAQEPj4W4lIWpzQ/company-logo_200_200/company-logo_200_200/0/1719581261705/technische_universitat_munchen_logo?e=1747872000&v=beta&t=qhZOKI6W0rq_w2zi1Ny9LYLtP8N6HiU7q-kFebd6hUI" alt="Description" width="22">](https://www.waldwachstum.wzw.tum.de/en/staff/astor-torano-caicoya/)
+
+#### Hans Pretzsch:
+
+<img src="https://www.professoren.tum.de/fileadmin/w00bgr/www/pics/PretzschHans.jpg" alt="Description" width="50"> 
+
+[![ORCID](https://img.shields.io/badge/ORCID-green?logo=orcid)](https://orcid.org/0000-0002-4958-1868) 
+[![ResearchGate](https://img.shields.io/badge/ResearchGate-00CCBB?logo=researchgate&logoColor=white)](https://www.researchgate.net/scientific-contributions/Hans-Pretzsch-38528857) 
+[<img src="https://media.licdn.com/dms/image/v2/D4D0BAQEPj4W4lIWpzQ/company-logo_200_200/company-logo_200_200/0/1719581261705/technische_universitat_munchen_logo?e=1747872000&v=beta&t=qhZOKI6W0rq_w2zi1Ny9LYLtP8N6HiU7q-kFebd6hUI" alt="Description" width="22">](https://www.waldwachstum.wzw.tum.de/en/staff/hans-pretzsch/)
 
 #### Felipe Bravo Oviedo:
 
-[![](https://github.com/Felipe-Bravo.png?size=50)](https://github.com/Felipe-Bravo) \\
-[ORCID](https://orcid.org/0000-0001-7348-6695) \\
-[Researchgate](https://www.researchgate.net/profile/Felipe-Bravo-11) \\
-[LinkedIn](https://www.linkedin.com/in/felipebravooviedo) \\
-[Twitter](https://twitter.com/fbravo_SFM) \\
-[UVa](https://portaldelaciencia.uva.es/investigadores/181874/detalle)
+[![](https://github.com/Felipe-Bravo.png?size=50)](https://github.com/Felipe-Bravo) 
 
-#### Angel Cristóbal Ordóñez Alonso:
-
-[![](https://github.com/acristo.png?size=50)](https://github.com/acristo) \\
-[ORCID](https://orcid.org/0000-0001-5354-3760) \\
-[Researchgate](https://www.researchgate.net/profile/Cristobal-Ordonez-Alonso) \\
-[LinkedIn](https://www.linkedin.com/in/cristobal-ordonez-b6a97244/) \\
-[Twitter](https://twitter.com/OrdonezAC) \\
-[UVa](https://portaldelaciencia.uva.es/investigadores/181312/detalle)
-
-#### Spyridon Michalakopoulos
-
-[![](https://github.com/spirosmichalak.png?size=50)](https://github.com/spirosmichalak) \\
-[ORCID](https://orcid.org/0000-0002-6262-8982) \\
-[Researchgate](https://www.researchgate.net/profile/Spiros-Michalakopoulos) \\
-[LinkedIn](https://www.linkedin.com/in/spiros-michalakopoulos/?originalSubdomain=es) \\
-[Twitter](https://twitter.com/spirosmichalak) \\
-[UVa](https://portaldelaciencia.uva.es/investigadores/988349/detalle)
-
-#### Irene Ruano Benito
-
-[![](https://github.com/ireneruano.png?size=50)](https://github.com/ireneruano) \\
-[ORCID](https://orcid.org/0000-0003-4059-1928) \\
-[Researchgate](https://www.researchgate.net/profile/Irene-Ruano) \\
-[LinkedIn](https://www.linkedin.com/in/ireneruano) \\
-[Twitter](https://x.com/iruanopalencia) \\
-[UVa](https://portaldelaciencia.uva.es/investigadores/181463/detalle)
-
-Astor Toraño Caicoya: 
-[ORDID](https://orcid.org/0000-0002-9658-8990) \\
-[TUM](https://www.waldwachstum.wzw.tum.de/en/staff/astor-torano-caicoya/)
-
-Peter Biber:
-[ORDID](https://orcid.org/0000-0002-9700-8708) \\
-[TUM](https://www.waldwachstum.wzw.tum.de/en/staff/peter-biber/)
-
-Enno Uhl:
-[ORDID](https://orcid.org/0000-0002-7847-923X) \\
-[TUM](https://www.waldwachstum.wzw.tum.de/en/staff/enno-uhl/)
-
-Hans Pretzsch:
-[ORDID](https://orcid.org/0000-0002-4958-1868) \\
-[TUM](https://www.waldwachstum.wzw.tum.de/en/staff/hans-pretzsch/)
+[![ORCID](https://img.shields.io/badge/ORCID-green?logo=orcid)](https://orcid.org/0000-0001-7348-6695) 
+[![ResearchGate](https://img.shields.io/badge/ResearchGate-00CCBB?logo=researchgate&logoColor=white)](https://www.researchgate.net/profile/Felipe-Bravo-11) 
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-blue?logo=linkedin)](https://www.linkedin.com/in/felipebravooviedo) 
+[![X](https://img.shields.io/badge/X-1DA1F2?logo=x&logoColor=white)](https://twitter.com/fbravo_SFM) 
+[<img src="https://media.licdn.com/dms/image/v2/D4D0BAQFazHOlOJO50A/company-logo_200_200/company-logo_200_200/0/1692170343519/universidad_de_valladolid_logo?e=1747872000&v=beta&t=1mTS-xC7h3L_DQATdt6hpqjWGgW_Am3MXKnjYwcOVZs" alt="Description" width="22">](https://portaldelaciencia.uva.es/investigadores/181874/detalle)
 
 ---
 
+## ℹ License 
+
+[![MIT License](https://img.shields.io/badge/license-MIT-red.svg)](./LICENSE)
+
+The content of this repository is under the [MIT license](./LICENSE).
+
+
+---
+
+## :pencil: How to cite this repository?
+
+You can use the [citation file](CITATION.cff) or copy the citation directly into APA or BibTeX using the bottom *Cite this repository* on the right hand side of the repository content, [here are more details](https://docs.github.com/es/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-citation-files).
+
+---
 <div style="text-align: center;">
 
-[papers_template repo](https://github.com/aitorvv/papers_template_repo) 
+[Metrics to evaluate individual tree mortality models](https://github.com/aitorvv/metrics_for_individual_tree_mortality_models) 
 
 </div>
