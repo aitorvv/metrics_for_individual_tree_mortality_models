@@ -52,11 +52,10 @@ Tree mortality plays a vital role in forest dynamics and is essential for growth
 :recycle: To reproduce the analysis, users must:
 
 - :floppy_disk: **Data**: 
-    - According to the original paper (*Due to the sensitive nature of the data, raw data would remain available only under serious requests.*), data must be requested from the authors
-    - WorldClim data required for the simulations must be downloaded from its [official website](https://www.worldclim.org/data/index.html)
-    - SFNI data required for the simulations must be downloaded from its [official website](https://www.miteco.gob.es/es/biodiversidad/temas/inventarios-nacionales/inventario-forestal-nacional.html) or accessed via **link to my repo**
+  
+    - Use the data located in the [data folder](./data/)
 
-- :computer: **Prerequisites: installation and code**: *[R](https://cran.r-project.org/bin/windows/base/)* must be installed to run the code with the libraries used in each script. *[RStudio](https://posit.co/download/rstudio-desktop/)* was used to develop the code. Some analyses may require high computational power, which could lead to out-of-memory issues on a standard computer. Access to high-performance computing services is strongly recommended in such cases.
+- :computer: **Prerequisites: installation and code**: *[R](https://cran.r-project.org/bin/windows/base/)* must be installed to run the code with the libraries used in each script. *[RStudio](https://posit.co/download/rstudio-desktop/)* was used to develop the code.
 
 - :scroll: **Usage**: Details about the use of the provided code and its workflow are available [here](./data/README.md)
 
