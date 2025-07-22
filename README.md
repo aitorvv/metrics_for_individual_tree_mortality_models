@@ -1,4 +1,4 @@
-# ***Rethinking individual tree mortality model evaluation: are we using the right approach?***
+# ***How performance metric choice influences individual tree mortality model selection***
 
 ### :computer: :floppy_disk: :bar_chart: *Original data, code and results related to the study*
 
@@ -64,7 +64,7 @@ Tree mortality plays a vital role in forest dynamics and is essential for growth
 ## 🔗 About the authors
 
 
-#### Aitor Vázquez Veloso:
+#### Aitor Vázquez Veloso
 
 [![](https://github.com/aitorvv.png?size=50)](https://github.com/aitorvv) 
 
@@ -74,25 +74,25 @@ Tree mortality plays a vital role in forest dynamics and is essential for growth
 [![ResearchGate](https://img.shields.io/badge/ResearchGate-00CCBB?logo=researchgate&logoColor=white)](https://www.researchgate.net/profile/Aitor_Vazquez_Veloso)
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-blue?logo=linkedin)](https://linkedin.com/in/aitorvazquezveloso/)
 [![X](https://img.shields.io/badge/X-1DA1F2?logo=x&logoColor=white)](https://twitter.com/aitorvv)
-[<img src="https://media.licdn.com/dms/image/v2/D4D0BAQFazHOlOJO50A/company-logo_200_200/company-logo_200_200/0/1692170343519/universidad_de_valladolid_logo?e=1747872000&v=beta&t=1mTS-xC7h3L_DQATdt6hpqjWGgW_Am3MXKnjYwcOVZs" alt="Description" width="22">](https://portaldelaciencia.uva.es/investigadores/178830/detalle)
+[<img src="https://raw.githubusercontent.com/aitorvv/aitorvv/main/logos/uva.jpg" alt="UVa" width="22">](https://portaldelaciencia.uva.es/investigadores/178830/detalle)
 
-#### Andrés Bravo Núñez:
+#### Andrés Bravo Núñez
 
-<img src="https://media.licdn.com/dms/image/v2/C5603AQGwRR3P-w54rA/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1627411706088?e=1744848000&v=beta&t=VCuIdbLmoyRqLm_5L2yyWeCv2g83vyyedooTrCXhlKA" alt="Description" width="50"> 
+<img src="https://avatars.githubusercontent.com/u/58822478?v=4" alt="Description" width="50"> 
 
 [![ORCID](https://img.shields.io/badge/ORCID-green?logo=orcid)](https://orcid.org/0009-0003-6650-3487) 
 [![ResearchGate](https://img.shields.io/badge/ResearchGate-00CCBB?logo=researchgate&logoColor=white)](https://www.researchgate.net/profile/Andres-Bravo-Nunez) 
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-blue?logo=linkedin)](https://www.linkedin.com/in/andbrav) 
-[<img src="https://media.licdn.com/dms/image/v2/D4D0BAQFazHOlOJO50A/company-logo_200_200/company-logo_200_200/0/1692170343519/universidad_de_valladolid_logo?e=1747872000&v=beta&t=1mTS-xC7h3L_DQATdt6hpqjWGgW_Am3MXKnjYwcOVZs" alt="Description" width="22">](https://portaldelaciencia.uva.es/investigadores/874028/detalle)
+[<img src="https://raw.githubusercontent.com/aitorvv/aitorvv/main/logos/uva.jpg" alt="UVa" width="22">](https://portaldelaciencia.uva.es/investigadores/874028/detalle)
 
-#### Astor Toraño Caicoya:
+#### Astor Toraño Caicoya
 
 <img src="https://www.lss.ls.tum.de/fileadmin/_processed_/f/0/csm_Picture20_57f925f9ae.webp" alt="Description" width="50"> 
 
 [![ORCID](https://img.shields.io/badge/ORCID-green?logo=orcid)](https://orcid.org/0000-0002-9658-8990) 
 [![ResearchGate](https://img.shields.io/badge/ResearchGate-00CCBB?logo=researchgate&logoColor=white)](https://www.researchgate.net/profile/Astor-Torano-Caicoya) 
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-blue?logo=linkedin)](https://www.linkedin.com/in/toranoac) 
-[<img src="https://media.licdn.com/dms/image/v2/D4D0BAQEPj4W4lIWpzQ/company-logo_200_200/company-logo_200_200/0/1719581261705/technische_universitat_munchen_logo?e=1747872000&v=beta&t=qhZOKI6W0rq_w2zi1Ny9LYLtP8N6HiU7q-kFebd6hUI" alt="Description" width="22">](https://www.waldwachstum.wzw.tum.de/en/staff/astor-torano-caicoya/)
+[<img src="https://raw.githubusercontent.com/aitorvv/aitorvv/main/logos/tum.png" alt="Description" width="30">](https://www.waldwachstum.wzw.tum.de/en/staff/astor-torano-caicoya/)
 
 #### Hans Pretzsch:
 
@@ -100,7 +100,7 @@ Tree mortality plays a vital role in forest dynamics and is essential for growth
 
 [![ORCID](https://img.shields.io/badge/ORCID-green?logo=orcid)](https://orcid.org/0000-0002-4958-1868) 
 [![ResearchGate](https://img.shields.io/badge/ResearchGate-00CCBB?logo=researchgate&logoColor=white)](https://www.researchgate.net/scientific-contributions/Hans-Pretzsch-38528857) 
-[<img src="https://media.licdn.com/dms/image/v2/D4D0BAQEPj4W4lIWpzQ/company-logo_200_200/company-logo_200_200/0/1719581261705/technische_universitat_munchen_logo?e=1747872000&v=beta&t=qhZOKI6W0rq_w2zi1Ny9LYLtP8N6HiU7q-kFebd6hUI" alt="Description" width="22">](https://www.waldwachstum.wzw.tum.de/en/staff/hans-pretzsch/)
+[<img src="https://raw.githubusercontent.com/aitorvv/aitorvv/main/logos/tum.png" alt="Description" width="30">](https://www.waldwachstum.wzw.tum.de/en/staff/hans-pretzsch/)
 
 #### Felipe Bravo Oviedo:
 
@@ -110,7 +110,8 @@ Tree mortality plays a vital role in forest dynamics and is essential for growth
 [![ResearchGate](https://img.shields.io/badge/ResearchGate-00CCBB?logo=researchgate&logoColor=white)](https://www.researchgate.net/profile/Felipe-Bravo-11) 
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-blue?logo=linkedin)](https://www.linkedin.com/in/felipebravooviedo) 
 [![X](https://img.shields.io/badge/X-1DA1F2?logo=x&logoColor=white)](https://twitter.com/fbravo_SFM) 
-[<img src="https://media.licdn.com/dms/image/v2/D4D0BAQFazHOlOJO50A/company-logo_200_200/company-logo_200_200/0/1692170343519/universidad_de_valladolid_logo?e=1747872000&v=beta&t=1mTS-xC7h3L_DQATdt6hpqjWGgW_Am3MXKnjYwcOVZs" alt="Description" width="22">](https://portaldelaciencia.uva.es/investigadores/181874/detalle)
+[<img src="https://raw.githubusercontent.com/aitorvv/aitorvv/main/logos/uva.jpg" alt="UVa" width="22">](https://portaldelaciencia.uva.es/investigadores/181874/detalle)
+
 
 ---
 
@@ -130,6 +131,6 @@ You can use the [citation file](CITATION.cff) or copy the citation directly into
 ---
 <div style="text-align: center;">
 
-[Metrics to evaluate individual tree mortality models](https://github.com/aitorvv/metrics_for_individual_tree_mortality_models) 
+[How performance metric choice influences individual tree mortality model selection](https://github.com/aitorvv/metrics_for_individual_tree_mortality_models) 
 
 </div>

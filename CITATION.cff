@@ -1,4 +1,4 @@
-cff-version: 1.0.0
+cff-version: 2.0.0
 message: "If you use this resources, please cite it as below."
 authors:
 - family-names: "Vázquez-Veloso"
@@ -16,8 +16,8 @@ authors:
 - family-names: "Bravo"
   given-names: "Felipe"
   orcid: "https://orcid.org/0000-0001-7348-6695"
-title: "Rethinking individual tree mortality model evaluation: are we using the right approach? - code and data"
-version: 1.0.0
+title: "How performance metric choice influences individual tree mortality model selection - code and data"
+version: 2.0.0
 doi: 
-date-released: 2025-03-07
+date-released: 2025-07-25
 url: "https://github.com/aitorvv/metrics_for_individual_tree_mortality_models"

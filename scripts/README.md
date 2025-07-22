@@ -1,4 +1,4 @@
-# ***Rethinking individual tree mortality model evaluation: are we using the right approach?***
+# ***How performance metric choice influences individual tree mortality model selection***
 
 ### :computer: :floppy_disk: :bar_chart: *Original data, code and results related to the study*
 
