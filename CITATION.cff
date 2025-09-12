@@ -16,7 +16,7 @@ authors:
 - family-names: "Bravo"
   given-names: "Felipe"
   orcid: "https://orcid.org/0000-0001-7348-6695"
-title: "How performance metric choice influences individual tree mortality model selection - code and data"
+title: 'Code, data and resources for "How performance metric choice influences individual tree mortality model selection"'
 version: 2.0.0
 doi: 
 date-released: 2025-07-25
