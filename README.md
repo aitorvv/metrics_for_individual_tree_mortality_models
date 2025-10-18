@@ -8,7 +8,10 @@
 <!--
 :bookmark: Poster DOI:  http://dx.doi.org/10.13140/RG.2.2.27865.94564 -->
 
-:open_file_folder: Repository DOI: [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.16313771.svg)](https://doi.org/10.5281/zenodo.16313771)
+:open_file_folder: Repository DOI: 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.17387888.svg)](https://doi.org/10.5281/zenodo.17387888)
+
+
 
 
 📜 Manuscript DOI: <!-- https://doi.org/10.1016/j.ecolmodel.2024.110912 -->
