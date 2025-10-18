@@ -3,7 +3,7 @@
 #                                                                                          #
 #                   Aitor Vázquez Veloso, 09/06/2023 (original paper)                      #
 #                   1st modification: 20/01/2025 (short communication)                     #
-#                   Last modification: 07/03/2025 (short communication)                    #
+#                   Last modification: 17/10/2025 (short communication)                    #
 #------------------------------------------------------------------------------------------#
 
 
@@ -14,19 +14,20 @@ library(reshape2) # change structure of data
 library(ggplot2)
 library(ggdist)
 library(ggpubr)
+library(grid)
 library(ROCR)
 
-setwd('')
+setwd('/media/aitor/WDE/PhD_UVa/1_Topics/2.2_Vitality_short/')
 
 
 
 #### Load general information ####
 
 # load support functions
-source('scripts/8.1_functions_performance_graphs.r')
+source('2_scripts/8.1_functions_performance_graphs.r')
 
 # load the variables groups from the previous code
-load('data/case_study_summary.RData')
+load('1_data/case_study_summary.RData')
 
 # filter just the example case study
 case_study <- case_study[case_study$name == 'Tcontrol_Vextreme', ]  
@@ -35,7 +36,7 @@ case_study <- case_study[case_study$name == 'Tcontrol_Vextreme', ]
 all_cases_best_model_compilation <- tibble()
 
 # Loading the workspace
-load(paste('data/', case_study$name, '/final_metrics.RData', sep = ''))
+load(paste('1_data/', case_study$name, '/final_metrics.RData', sep = ''))
 
 # common information
 n_data <- length(my_combis)
@@ -83,22 +84,24 @@ all_models_metrics <- melt(all_models_metrics, id.var="model_code")
 
 # Create a ggplot with only density plots
 ggplot(all_models_metrics, aes(x = value, colour = variable)) + 
-  geom_density(lwd = 2, linetype = 1) + 
+  geom_density(lwd = 1, linetype = 1) + 
   labs(#title = 'LR performance on 180 candidate models',
        x = 'Performance level', y = 'Number of models') +  
   theme_light() + 
-  theme(plot.title = element_text(size = 20, face = 'bold', hjust = 0.5),
-        axis.text.x = element_text(size = 16),
-        axis.text.y = element_text(size = 16),
-        axis.title.x = element_text(size = 16, face = 'bold'),
-        axis.title.y = element_text(size = 16, face = 'bold'),
-        legend.text = element_text(size = 20),
-        legend.title = element_text(size = 20, face = 'bold'),
-        legend.position = c(0.08, 0.85)) +  # relative position according to the graph area
+  theme(text = element_text(family = "Times New Roman"),
+        plot.title = element_text(size = 20, hjust = 0.5),
+        axis.text.x = element_text(size = 12),
+        axis.text.y = element_text(size = 12),
+        axis.title.x = element_text(size = 12),
+        axis.title.y = element_text(size = 12),
+        legend.text = element_text(size = 10),
+        legend.title = element_text(size = 10),
+        legend.position = c(0.08, 0.8)) +  # relative position according to the graph area
   scale_color_manual(name = "Metric", values = color_metrics) 
   
 # save graph
-ggsave(filename = 'output/LR_performance_distribution.png', device = 'png', units = 'mm', dpi = 300, width = 450, height = 300)
+ggsave(filename = '3_output/LR_performance_distribution.jpg', device = 'jpeg', units = 'mm', 
+       dpi = 300, width = 160, height = 106)
 
 
 
@@ -113,43 +116,47 @@ best_model_by_metric <- all_models_metrics %>%
 # Create a ggplot with only density plots
 ggplot(best_model_by_metric, aes(x = variable, y = value, fill = variable)) + 
   geom_bar(stat = "identity", show.legend = FALSE) +  
-  geom_text(aes(label = paste('model ', model_code, sep = '')), vjust = -0.5, size = 8, fontface = "italic") +
+  geom_text(aes(label = paste('model ', model_code, sep = '')), vjust = -0.5, size = 4, fontface = "italic") +
   labs(#title = 'Best LR model based on each metric', 
        x = 'Metric', y = 'Performance level') +  
   theme_light() + 
-  theme(plot.title = element_text(size = 20, face = 'bold', hjust = 0.5),
-        axis.text.x = element_text(size = 16),
-        axis.text.y = element_text(size = 16),
-        axis.title.x = element_text(size = 16, face = 'bold'),
-        axis.title.y = element_text(size = 16, face = 'bold'),
-        plot.tag = element_text(size = 25, face = "bold"),
+  theme(text = element_text(family = "Times New Roman"),
+        plot.title = element_text(size = 20, hjust = 0.5),
+        axis.text.x = element_text(size = 12),
+        axis.text.y = element_text(size = 12),
+        axis.title.x = element_text(size = 12),
+        axis.title.y = element_text(size = 12),
+        plot.tag = element_text(size = 18),
         plot.tag.location = 'margin') +  # panel, plot or margin
   scale_fill_manual(name = "Metric", values = color_metrics) + 
   labs(tag = 'A')
 
 # save graph
-ggsave(filename = 'output/LR_best_model_by_metric.png', device = 'png', units = 'mm', dpi = 300, width = 450, height = 300)
+ggsave(filename = '3_output/LR_best_model_by_metric.jpg', device = 'jpeg', units = 'mm', 
+       dpi = 300, width = 160, height = 106)
 
 
 # Create a ggplot with only density plots
 ggplot(best_model_by_metric, aes(x = variable, y = value, fill = variable)) + 
   geom_bar(stat = "identity", show.legend = FALSE) +  
-  geom_text(aes(label = paste('model ', model_code, sep = '')), vjust = -0.5, size = 8, fontface = "italic") +
+  geom_text(aes(label = paste('model ', model_code, sep = '')), vjust = -0.5, size = 4, fontface = "italic") +
   labs(#title = 'Best LR model based on each metric', 
     x = 'Metric', y = 'Performance level') +  
   theme_light() + 
-  theme(plot.title = element_text(size = 20, face = 'bold', hjust = 0.5),
-        axis.text.x = element_text(size = 16),
-        axis.text.y = element_text(size = 16),
-        axis.title.x = element_text(size = 16, face = 'bold'),
-        axis.title.y = element_text(size = 16, face = 'bold'),
-        plot.tag = element_text(size = 25, face = "bold"),
+  theme(text = element_text(family = "Times New Roman"),
+        plot.title = element_text(size = 20, hjust = 0.5),
+        axis.text.x = element_text(size = 12),
+        axis.text.y = element_text(size = 12),
+        axis.title.x = element_text(size = 12),
+        axis.title.y = element_text(size = 12),
+        plot.tag = element_text(size = 18),
         plot.tag.location = 'margin') +  # panel, plot or margin
   scale_fill_manual(name = "Metric", values = color_metrics) #+ 
   # labs(tag = 'A')
 
 # save graph
-ggsave(filename = 'output/LR_best_model_by_metric-no_label.png', device = 'png', units = 'mm', dpi = 300, width = 450, height = 300)
+ggsave(filename = '3_output/LR_best_model_by_metric-no_label.jpg', device = 'jpeg', units = 'mm', 
+       dpi = 300, width = 160, height = 106)
 
 
 
@@ -170,18 +177,20 @@ ggplot(best_mcc_model_metrics, aes(x = variable, y = value, fill = variable)) +
   labs(#title = 'Best LR model performance based on MCC', 
     x = 'Metric', y = 'Performance level') +  
   theme_light() + 
-  theme(plot.title = element_text(size = 20, face = 'bold', hjust = 0.5),
-        axis.text.x = element_text(size = 16),
-        axis.text.y = element_text(size = 16),
-        axis.title.x = element_text(size = 16, face = 'bold'),
-        axis.title.y = element_text(size = 16, face = 'bold'),
-        plot.tag = element_text(size = 25, face = "bold"),
+  theme(text = element_text(family = "Times New Roman"),
+        plot.title = element_text(size = 20, hjust = 0.5),
+        axis.text.x = element_text(size = 12),
+        axis.text.y = element_text(size = 12),
+        axis.title.x = element_text(size = 12),
+        axis.title.y = element_text(size = 12),
+        plot.tag = element_text(size = 18),
         plot.tag.location = 'margin') + # panel, plot or margin
   scale_fill_manual(name = "Metric", values = color_metrics) + 
   labs(tag = 'B')
 
 # save graph
-ggsave(filename = 'output/LR_best_mcc_model.png', device = 'png', units = 'mm', dpi = 300, width = 450, height = 300)
+ggsave(filename = '3_output/LR_best_mcc_model.jpg', device = 'jpeg', units = 'mm', 
+       dpi = 300, width = 160, height = 106)
 
 
 
@@ -194,20 +203,22 @@ ggplot(models_14_and_176_metrics, aes(x = variable, y = value, fill = as.factor(
   labs(#title = 'Best LR model performance based on MCC', 
     x = 'Metric', y = 'Performance level') +  
   theme_light() + 
-  theme(plot.title = element_text(size = 20, face = 'bold', hjust = 0.5),
-        axis.text.x = element_text(size = 16),
-        axis.text.y = element_text(size = 16),
-        axis.title.x = element_text(size = 16, face = 'bold'),
-        axis.title.y = element_text(size = 16, face = 'bold'),
-        plot.tag = element_text(size = 25, face = "bold"),
+  theme(text = element_text(family = "Times New Roman"),
+        plot.title = element_text(size = 20, hjust = 0.5),
+        axis.text.x = element_text(size = 12),
+        axis.text.y = element_text(size = 12),
+        axis.title.x = element_text(size = 12),
+        axis.title.y = element_text(size = 12),
+        plot.tag = element_text(size = 18),
         plot.tag.location = 'margin',  # panel, plot or margin
-        legend.text = element_text(size = 20),
-        legend.title = element_text(size = 20, face = 'bold'),
-        legend.position = c(0.9, 0.85)) +  # relative position according to the graph area
+        legend.text = element_text(size = 12),
+        legend.title = element_text(size = 12),
+        legend.position = c(0.9, 0.8)) +  # relative position according to the graph area
   scale_fill_manual(name = "Model code", values = c("darkolivegreen", "gold2")) +
   labs(tag = 'C')
 
-ggsave(filename = 'output/LR_model_14_vs_176.png', device = 'png', units = 'mm', dpi = 300, width = 450, height = 300)
+ggsave(filename = '3_output/LR_model_14_vs_176.jpg', device = 'jpeg', units = 'mm', 
+       dpi = 300, width = 160, height = 106)
 
 
 
@@ -218,51 +229,53 @@ color_metrics_reordered <- c('darkgreen', 'darkorange', 'darkblue', 'darkolivegr
 best_model_on_one_metric$variable <- factor(best_model_on_one_metric$variable, levels = names_metrics)
 
 ggplot(best_model_on_one_metric, aes(x = variable, y = value, colour = as.factor(model_code))) + 
-  geom_point(size = 5) +
+  geom_point(size = 2.5) +
   labs(#title = 'Best model by metric comparison, 
     x = 'Metric', y = 'Performance level') +  
   theme_light() + 
-  theme(plot.title = element_text(size = 20, face = 'bold', hjust = 0.5),
-        axis.text.x = element_text(size = 16),
-        axis.text.y = element_text(size = 16),
-        axis.title.x = element_text(size = 16, face = 'bold'),
-        axis.title.y = element_text(size = 16, face = 'bold'),
-        plot.tag = element_text(size = 25, face = "bold"),
+  theme(text = element_text(family = "Times New Roman"),
+        plot.title = element_text(size = 20, hjust = 0.5),
+        axis.text.x = element_text(size = 12),
+        axis.text.y = element_text(size = 12),
+        axis.title.x = element_text(size = 12),
+        axis.title.y = element_text(size = 12),
+        plot.tag = element_text(size = 18),
         plot.tag.location = 'margin',  # panel, plot or margin
-        legend.text = element_text(size = 20),
-        legend.title = element_text(size = 20, face = 'bold'),
-        legend.position = c(0.9, 0.85)) +  # relative position according to the graph area
+        legend.text = element_text(size = 12),
+        legend.title = element_text(size = 12),
+        legend.position = c(0.88, 0.8)) +  # relative position according to the graph area
   scale_colour_manual(name = "Model code", values = color_metrics_reordered, 
                       labels = c('14 (ACCd)', '72 (K)', '86 (AUC)', '94 (ACCa)', '146 (AUCPR)', 
                                  '156 (ACC)', '176 (MCC)')) +
   labs(tag = 'B')
 
-ggsave(filename = 'output/LR_best_model_on_one_metric.png', 
-       device = 'png', units = 'mm', dpi = 300, width = 450, height = 300)
+ggsave(filename = '3_output/LR_best_model_on_one_metric.jpg', 
+       device = 'jpeg', units = 'mm', dpi = 300, width = 160, height = 106)
 
 # graph without label
 ggplot(best_model_on_one_metric, aes(x = variable, y = value, colour = as.factor(model_code))) + 
-  geom_point(size = 5) +
+  geom_point(size = 2.5) +
   labs(#title = 'Best model by metric comparison, 
     x = 'Metric', y = 'Performance level') +  
   theme_light() + 
-  theme(plot.title = element_text(size = 20, face = 'bold', hjust = 0.5),
-        axis.text.x = element_text(size = 16),
-        axis.text.y = element_text(size = 16),
-        axis.title.x = element_text(size = 16, face = 'bold'),
-        axis.title.y = element_text(size = 16, face = 'bold'),
-        plot.tag = element_text(size = 25, face = "bold"),
+  theme(text = element_text(family = "Times New Roman"),
+        plot.title = element_text(size = 20, hjust = 0.5),
+        axis.text.x = element_text(size = 12),
+        axis.text.y = element_text(size = 12),
+        axis.title.x = element_text(size = 12),
+        axis.title.y = element_text(size = 12),
+        plot.tag = element_text(size = 18),
         plot.tag.location = 'margin',  # panel, plot or margin
-        legend.text = element_text(size = 20),
-        legend.title = element_text(size = 20, face = 'bold'),
-        legend.position = c(0.9, 0.85)) +  # relative position according to the graph area
+        legend.text = element_text(size = 12),
+        legend.title = element_text(size = 12),
+        legend.position = c(0.88, 0.8)) +  # relative position according to the graph area
   scale_colour_manual(name = "Model code", values = color_metrics_reordered, 
                       labels = c('14 (ACCd)', '72 (K)', '86 (AUC)', '94 (ACCa)', '146 (AUCPR)', 
                                  '156 (ACC)', '176 (MCC)')) 
   # labs(tag = 'B')
 
-ggsave(filename = 'output/LR_best_model_on_one_metric-no_label.png', 
-       device = 'png', units = 'mm', dpi = 300, width = 450, height = 300)
+ggsave(filename = '3_output/LR_best_model_on_one_metric-no_label.jpg', 
+       device = 'jpeg', units = 'mm', dpi = 300, width = 160, height = 106)
 
 
 # Graph six: all models on all algorithms all metrics ====
@@ -381,13 +394,14 @@ ggplot(all_data, aes(x = algorithm, y = value, fill = algorithm)) +
     y = "Performance"
   ) +
   theme_minimal() +  # Apply a minimal theme
-  theme(plot.title = element_text(hjust = 0.5), legend.position = "none") +  # Center title, remove legend
+  theme(text = element_text(family = "Times New Roman"),
+        plot.title = element_text(hjust = 0.5), legend.position = "none") +  # Center title, remove legend
   scale_fill_manual(values = color_methods) + 
   facet_wrap(~metric)
 
 # save graph
-ggsave(filename = 'output/all_algorithms_models_and_metrics.png', 
-       device = 'png', units = 'mm', dpi = 300, width = 450, height = 300, bg = 'white')
+ggsave(filename = '3_output/all_algorithms_models_and_metrics.jpg', 
+       device = 'jpeg', units = 'mm', dpi = 300, width = 160, height = 106, bg = 'white')
 
 # alternative density graph
 ggplot(all_data, aes(x = value, colour = algorithm)) + 
@@ -395,15 +409,16 @@ ggplot(all_data, aes(x = value, colour = algorithm)) +
   labs(#title = 'LR performance on 180 candidate models',
     x = 'Performance level', y = 'Number of models') +  
   theme_light() + 
-  theme(plot.title = element_text(size = 20, face = 'bold', hjust = 0.5),
-        axis.text.x = element_text(size = 16),
-        axis.text.y = element_text(size = 16),
-        axis.title.x = element_text(size = 16, face = 'bold'),
-        axis.title.y = element_text(size = 16, face = 'bold'),
-        legend.text = element_text(size = 20),
-        legend.title = element_text(size = 20, face = 'bold'),
+  theme(text = element_text(family = "Times New Roman"),
+        plot.title = element_text(size = 20, hjust = 0.5),
+        axis.text.x = element_text(size = 12),
+        axis.text.y = element_text(size = 12),
+        axis.title.x = element_text(size = 12),
+        axis.title.y = element_text(size = 12),
+        legend.text = element_text(size = 10),
+        legend.title = element_text(size = 10),
         legend.position = c(0.9, 0.15),
-        strip.text = element_text(size = 16, face = "bold")) +  # relative position according to the graph area
+        strip.text = element_text(size = 12)) +  # relative position according to the graph area
   scale_color_manual(name = "Algorithm", values = color_methods) +
   facet_wrap(~metric) 
 
@@ -417,41 +432,44 @@ data3 <- subset(all_data, metric %in% c("K", "MCC"))
 
 # create separate plots
 plot1 <- ggplot(data1, aes(x = value, colour = algorithm)) +
-  geom_density(lwd = 1, linetype = 1) +
+  geom_density(lwd = 0.75, linetype = 1) +
   labs(x = NULL, y = NULL) +
   theme_light() +
   xlim(0, 1) +
-  theme(axis.text.x = element_text(size = 16),
-        axis.text.y = element_text(size = 16),
-        legend.text = element_text(size = 16),
-        legend.title = element_text(size = 16, face = 'bold'),
-        strip.text = element_text(size = 16, face = "bold")) +
+  theme(text = element_text(family = "Times New Roman"),
+        axis.text.x = element_text(size = 8),
+        axis.text.y = element_text(size = 8),
+        legend.text = element_text(size = 8),
+        legend.title = element_text(size = 8),
+        strip.text = element_text(size = 8)) +
   scale_color_manual(name = "Algorithm  ", values = color_methods) +
   facet_wrap(~metric, ncol = 3, scales = "free_x")
 
 plot2 <- ggplot(data2, aes(x = value, colour = algorithm)) +
-  geom_density(lwd = 1, linetype = 1) +
+  geom_density(lwd = 0.75, linetype = 1) +
   labs(x = NULL, y = NULL) +
   theme_light() +
-  theme(axis.text.x = element_text(size = 16),
-        axis.text.y = element_text(size = 16),
-        legend.text = element_text(size = 16),
-        legend.title = element_text(size = 16, face = 'bold'),
-        strip.text = element_text(size = 16, face = "bold")) +
+  theme(text = element_text(family = "Times New Roman"),
+        axis.text.x = element_text(size = 8),
+        axis.text.y = element_text(size = 8),
+        legend.text = element_text(size = 8),
+        legend.title = element_text(size = 8),
+        strip.text = element_text(size = 8)) +
   xlim(0, 1) +
   scale_color_manual(name = "Algorithm  ", values = color_methods) +
   
   facet_wrap(~metric, ncol = 2)
 
 plot3 <- ggplot(data3, aes(x = value, colour = algorithm)) +
-  geom_density(lwd = 1, linetype = 1) +
+  geom_density(lwd = 0.75, linetype = 1) +
   labs(x = NULL, y = NULL) +
   theme_light() +
-  theme(axis.text.x = element_text(size = 16),
-        axis.text.y = element_text(size = 16),
-        legend.text = element_text(size = 16),
-        legend.title = element_text(size = 16, face = 'bold'),
-        strip.text = element_text(size = 16, face = "bold")) +
+  theme(text = element_text(family = "Times New Roman"),
+        axis.text.x = element_text(size = 8),
+        axis.text.y = element_text(size = 8),
+        legend.text = element_text(size = 8),
+        legend.title = element_text(size = 8),
+        strip.text = element_text(size = 8)) +
   xlim(0, 1) +
   scale_color_manual(name = "Algorithm  ", values = color_methods) +
   facet_wrap(~metric, ncol = 2)
@@ -463,12 +481,12 @@ combined_plot <- ggarrange(plot1, plot2, plot3,
 # add shared axis labels
 annotate_figure(
   combined_plot,
-  bottom = text_grob("Performance level", size = 16, face = "bold"),
-  left = text_grob("Number of models", size = 16, face = "bold", rot = 90)
+  bottom = text_grob("Performance level", size = 10),
+  left = text_grob("Number of models", size = 10, rot = 90)
 )
 
-ggsave(filename = 'output/density_all_algorithms_models_and_metrics.png', 
-       device = 'png', units = 'mm', dpi = 300, width = 450, height = 300, bg = 'white')
+ggsave(filename = '3_output/density_all_algorithms_models_and_metrics.jpg', 
+       device = 'jpeg', units = 'mm', dpi = 300, width = 160, height = 106, bg = 'white')
 
 
 
@@ -496,17 +514,18 @@ best_compilation$names_methods <- factor(best_compilation$names_methods,
 ggplot(best_compilation, aes(x = names_methods, y = as.numeric(best_acc), fill = Metrics)) + 
   geom_bar(stat = "identity", position = 'dodge', ) +
   geom_text(aes(label = best_model), position = position_dodge(width = 0.9), 
-            vjust = 0.3, hjust = -0.1, size = 5, angle = 90, fontface = "italic") +
+            vjust = 0.3, hjust = -0.1, size = 2.5, angle = 90, fontface = "italic") +
   theme_light() +
   theme_light() + 
-  theme(plot.title = element_text(size = 20, face = 'bold', hjust = 0.5),
-        axis.text.x = element_text(size = 16),
-        axis.text.y = element_text(size = 16),
-        axis.title.x = element_text(size = 16, face = 'bold'),
-        axis.title.y = element_text(size = 16, face = 'bold'),
-        plot.tag = element_text(size = 25, face = "bold"),
-        legend.text = element_text(size = 20),
-        legend.title = element_text(size = 20, face = 'bold'),
+  theme(text = element_text(family = "Times New Roman"),
+        plot.title = element_text(size = 20, hjust = 0.5),
+        axis.text.x = element_text(size = 10),
+        axis.text.y = element_text(size = 10),
+        axis.title.x = element_text(size = 10),
+        axis.title.y = element_text(size = 10),
+        plot.tag = element_text(size = 15),
+        legend.text = element_text(size = 10),
+        legend.title = element_text(size = 10),
         plot.tag.location = 'margin') +  # panel, plot or margin
   labs(#title = 'Metrics comparison for the best model of each algorithm',
        x = 'Algorithm', y = 'Performance level') + 
@@ -514,23 +533,25 @@ ggplot(best_compilation, aes(x = names_methods, y = as.numeric(best_acc), fill =
   labs(tag = 'A')
 
 # save graph
-ggsave(filename = 'output/best_model_per_algorithm_for_each_metric.png', device = 'png', units = 'mm', dpi = 300, width = 450, height = 300)
+ggsave(filename = '3_output/best_model_per_algorithm_for_each_metric.jpg', device = 'jpeg', units = 'mm', 
+       dpi = 300, width = 160, height = 106)
 
 # repeat the graph without label
 ggplot(best_compilation, aes(x = names_methods, y = as.numeric(best_acc), fill = Metrics)) + 
   geom_bar(stat = "identity", position = 'dodge', ) +
   geom_text(aes(label = best_model), position = position_dodge(width = 0.9), 
-            vjust = 0.3, hjust = -0.1, size = 5, angle = 90, fontface = "italic") +
+            vjust = 0.3, hjust = -0.1, size = 2.5, angle = 90, fontface = "italic") +
   theme_light() +
   theme_light() + 
-  theme(plot.title = element_text(size = 20, face = 'bold', hjust = 0.5),
-        axis.text.x = element_text(size = 16),
-        axis.text.y = element_text(size = 16),
-        axis.title.x = element_text(size = 16, face = 'bold'),
-        axis.title.y = element_text(size = 16, face = 'bold'),
-        plot.tag = element_text(size = 25, face = "bold"),
-        legend.text = element_text(size = 20),
-        legend.title = element_text(size = 20, face = 'bold'),
+  theme(text = element_text(family = "Times New Roman"),
+        plot.title = element_text(size = 20, hjust = 0.5),
+        axis.text.x = element_text(size = 10),
+        axis.text.y = element_text(size = 10),
+        axis.title.x = element_text(size = 10),
+        axis.title.y = element_text(size = 10),
+        plot.tag = element_text(size = 15),
+        legend.text = element_text(size = 10),
+        legend.title = element_text(size = 10),
         plot.tag.location = 'margin') +  # panel, plot or margin
   labs(#title = 'Metrics comparison for the best model of each algorithm',
     x = 'Algorithm', y = 'Performance level') + 
@@ -538,7 +559,8 @@ ggplot(best_compilation, aes(x = names_methods, y = as.numeric(best_acc), fill =
   # labs(tag = 'A')
 
 # save graph
-ggsave(filename = 'output/best_model_per_algorithm_for_each_metric-no_label.png', device = 'png', units = 'mm', dpi = 300, width = 450, height = 300)
+ggsave(filename = '3_output/best_model_per_algorithm_for_each_metric-no_label.jpg', device = 'jpeg', units = 'mm', 
+       dpi = 300, width = 160, height = 106)
 
 
 
@@ -676,36 +698,50 @@ svm_models <- merge(svm_models, svm_best_compilation, by.x = 'model_code', by.y 
 
 
 # graph each model separately
-graph_eight <- function(df, title = NULL, tag_letter = NULL){
-  graph <- ggplot(df, aes(x = metric, y = as.numeric(value), colour = as.factor(label))) + 
-    geom_point(size = 5) +
-    labs(title = title, 
-         # x = 'Metric', y = 'Performance level') +
-         x = NULL, y = NULL) +
-    theme_minimal() + 
-    theme(plot.title = element_text(size = 15, face = 'bold', hjust = 0.5),
-          axis.text.x = element_text(size = 12),
-          axis.text.y = element_text(size = 12),
-          axis.title.x = element_text(size = 16, face = 'bold'),
-          axis.title.y = element_text(size = 16, face = 'bold'),
-          plot.tag = element_text(size = 15, face = "bold"),
-          plot.tag.location = 'margin',  # panel, plot or margin
-          legend.text = element_text(size = 12),
-          legend.title = element_text(size = 12, face = 'bold'),
-          legend.position = c(0.2, 0.3)) +
+graph_eight <- function(df, title = NULL, leg_pos = c(0.02, 0.30)) {
+  ggplot(df, aes(x = metric, y = as.numeric(value), colour = as.factor(label))) +
+    geom_point(size = 1) +
+    labs(title = title, x = NULL, y = NULL) +
+    theme_minimal() +
+    theme(
+      text = element_text(family = "Times New Roman"),
+      plot.title = element_text(size = 8, hjust = 0.5),
+      axis.text.x = element_text(size = 6),
+      axis.text.y = element_text(size = 6),
+      
+      # ---- LEYENDA DENTRO DEL PANEL, ESQUINA SUP-IZQ ----
+      legend.position       = leg_pos,         # coordenadas relativas dentro del panel
+      legend.justification  = c(0, 1),               # anclar arriba-izquierda
+      legend.background     = element_rect(fill = scales::alpha("white", 0.75),
+                                           colour = "grey85"),
+      # ---- Título y texto ----
+      legend.title = element_text(size = 5),
+      legend.text  = element_text(size = 5, lineheight = 0.85),
+      
+      # ---- Compactación vertical/horizontal ----
+      legend.key.height = unit(2.0, "mm"),
+      legend.key.width  = unit(3.0, "mm"),
+      legend.spacing.y  = unit(0, "mm"),             # espacio entre keys
+      legend.margin     = margin(0, 0, 0, 0),
+      legend.box.margin = margin(0, 0, 0, 0)
+    ) +
     ylim(0, 1) +
-    scale_colour_manual(name = 'Model code', values = color_metrics) #+ 
-  #labs(tag = tag_letter)
-  
-  return(graph)
+    scale_colour_manual(name = "Model code", values = color_metrics) +
+    guides(
+      colour = guide_legend(
+        ncol = 1, byrow = TRUE,                      # una sola columna, apilado compacto
+        keyheight = unit(2.0, "mm"), keywidth = unit(3.0, "mm"),
+        override.aes = list(size = 1.2)              # puntos más pequeños en la leyenda
+      )
+    )
 }
 
-g_lr <- graph_eight(lr_models, title = 'LR', tag_letter = 'A')
-g_dt <- graph_eight(dt_models, title = 'DT', tag_letter = 'B')
-g_rf <- graph_eight(rf_models, title = 'RF', tag_letter = 'C')
-g_nb <- graph_eight(nb_models, title = 'NB', tag_letter = 'D')
-g_knn <- graph_eight(knn_models, title = 'KNN', tag_letter = 'E')
-g_svm <- graph_eight(svm_models, title = 'SVM', tag_letter = 'F')
+g_lr <- graph_eight(lr_models, title = 'LR', leg_pos = c(0.6, 0.45))
+g_dt <- graph_eight(dt_models, title = 'DT', leg_pos = c(0.5, 0.4))
+g_rf <- graph_eight(rf_models, title = 'RF', leg_pos = c(0.35, 0.3))
+g_nb <- graph_eight(nb_models, title = 'NB', leg_pos = c(0.05, 0.4))
+g_knn <- graph_eight(knn_models, title = 'KNN', leg_pos = c(0.05, 0.4))
+g_svm <- graph_eight(svm_models, title = 'SVM', leg_pos = c(0.05, 0.4))
 
 # compile all models
 combi_plot <- ggarrange(g_lr, g_dt, g_rf, g_nb, g_knn, g_svm,
@@ -715,12 +751,12 @@ combi_plot <- ggarrange(g_lr, g_dt, g_rf, g_nb, g_knn, g_svm,
 # add shared axis labels
 annotate_figure(
   combi_plot,
-  bottom = text_grob("Number of models", size = 16, face = "bold"),
-  left = text_grob("Metric", size = 16, face = "bold", rot = 90)
+  bottom = text_grob("Number of models", size = 8),
+  left = text_grob("Metric", size = 8, rot = 90)
 )
 
-ggsave(filename = 'output/points_all_algorithms_models_and_metrics.png', 
-       device = 'png', units = 'mm', dpi = 300, width = 450, height = 300, bg = 'white')
+ggsave(filename = '3_output/points_all_algorithms_models_and_metrics.jpg', 
+       device = 'jpeg', units = 'mm', dpi = 300, width = 160, height = 106, bg = 'white')
 
 
 
@@ -753,8 +789,8 @@ ggsave(filename = 'output/points_all_algorithms_models_and_metrics.png',
 #   labs(tag = 'B') + 
 #   facet_wrap(~algorithm)
 # 
-# ggsave(filename = 'output/LR_best_model_on_one_metric.png', 
-#        device = 'png', units = 'mm', dpi = 300, width = 450, height = 300)
+# ggsave(filename = '3_output/LR_best_model_on_one_metric.jpg', 
+#        device = 'jpeg', units = 'mm', dpi = 300, width = 160, height = 106)
 
 
 
@@ -770,10 +806,12 @@ all_mcc_best <- all_data[all_data$names %in% mcc_best$name_to_filter, ]
 ggplot(all_mcc_best, aes(x = algorithm, y = as.numeric(value), fill = metric)) + 
   geom_bar(stat = "identity", position = 'dodge') +
   theme_light() +
-  theme(plot.title = element_text(hjust = 0.5)) +
+  theme(text = element_text(family = "Times New Roman"),
+        plot.title = element_text(hjust = 0.5)) +
   labs(title = 'Performance of the best model based on MCC per algorithm',
        x = 'Algorithm', y = 'Performance') + 
   scale_fill_manual(name = 'Metrics', values = color_metrics)
 
 # save graph
-ggsave(filename = 'output/best_model_on_mcc.png', device = 'png', units = 'mm', dpi = 300, width = 450, height = 300)
+ggsave(filename = '3_output/best_model_on_mcc.jpg', device = 'jpeg', units = 'mm', dpi = 300, 
+       width = 160, height = 106)
