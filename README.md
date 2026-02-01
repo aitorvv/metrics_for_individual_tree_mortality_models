@@ -14,7 +14,7 @@
 
 
 
-📜 Manuscript DOI: <!-- https://doi.org/10.1016/j.ecolmodel.2024.110912 -->
+📜 Manuscript DOI: https://doi.org/10.1007/s11676-026-01996-2
 
 ---
 
